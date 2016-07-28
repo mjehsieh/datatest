@@ -101,9 +101,6 @@
 				echo "<td>" . $row['no_load_ripple_volt'] . "</td>";
 				echo "<td>" . $row['no_load_ripple_high_low'] . "</td>";
 				echo "<td>" . $row['ir_value'] . "</td>";
-				echo "<td>" . $row[''] . "</td>";
-				echo "<td>" . $row[''] . "</td>";
-				echo "<td>" . $row[''] . "</td>";
     }
     echo "</table>";
 ?>
