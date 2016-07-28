@@ -20,7 +20,7 @@ if (isset($_POST['email_address'])){
 	$db = new DB_CONNECT();
 	
 	// search a uset in user table
-	$sql = "SELECT * FROM user WHERE email_address = '$email_address'";
+	$sql = "SELECT * FROM USER_ACCOUNT_TABLE WHERE email_address = '$email_address'";
 	$result = mysql_query($sql) or die(mysql_error());
 	
 	// check if row inserted or not
