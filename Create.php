@@ -1,18 +1,21 @@
 <?php
 
 /* **
- *  Create a new user in MySQL.
+ *  Create a new user to USER_ACCOUNT_TABLE.
  */
 
 // array for JSON response
 $response = array();
 
 // check for required fields
-if (isset($_POST['userID']) && isset($_POST['Email'])){
-	
+if (isset($_POST['store_user_name']) && isset($_POST['store_user_address']) && 
+		isset($_POST['email_address']) && isset($_POST['phone_number']))
+{	
 	// get values
-	$userid = $_POST['userID'];
-	$email = $_POST['Email'];
+	$store_user_name = $_POST['store_user_name'];
+	$store_user_address = $_POST['store_user_address'];
+	$email_address = $_POST['email_address'];
+	$phone_number = $_POST['phone_number'];
 	
 	// include db connect class
 	require_once __DIR__ . '/db_connect.php';
@@ -20,8 +23,9 @@ if (isset($_POST['userID']) && isset($_POST['Email'])){
 	// connecting to db
 	$db = new DB_CONNECT();
 	
-	// create data to user table
-	$sql = "INSERT INTO user (userID, Email) VALUES ('$userid', '$email')";
+	// create data to user account table
+	$sql = "INSERT INTO USER_ACCOUNT_TABLE (store_user_name, store_user_address, email_address, phone_number)
+					values ('$store_user_name', '$store_user_address', '$email_address', '$phone_number')";
 	$result = mysql_query($sql) or die(mysql_error());
 	
 	// check if row inserted or not
