@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
     // include db connect class
 		require_once __DIR__ . '/db_connect.php';
 		
@@ -6,6 +7,23 @@
 		$db = new DB_CONNECT();
 		
     $sql = "SELECT * FROM `USER_ACCOUNT_TABLE`;";
+=======
+    //$dbhost = '127.0.0.1';
+    //$dbuser = 'root';
+    //$dbpass = '';
+    //$dbname = 'datatest';
+    //$conn = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error with MySQL connection');
+    // include db connect class
+    require_once __DIR__ . '/db_connect.php';
+
+    // connecting to db
+    $db = new DB_CONNECT();
+
+    //mysql_query("SET NAMES 'utf8'");
+    //mysql_select_db($dbname);
+    
+    $sql = "SELECT * FROM `user`;";
+>>>>>>> origin/master
     $result = mysql_query($sql) or die('MySQL query error');
     
     
