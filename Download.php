@@ -1,7 +1,7 @@
 <?php
 
-/*
- * Following code will list all the products
+/* **
+ * Show all users.
  */
 
 // array for JSON response
@@ -14,7 +14,7 @@ require_once __DIR__ . '/db_connect.php';
 // connecting to db
 $db = new DB_CONNECT();
 
-// get all products from products table
+// get all users from user table
 $sql = "SELECT * FROM `user`;";
 $result = mysql_query($sql) or die(mysql_error());
 

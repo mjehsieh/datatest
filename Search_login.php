@@ -2,8 +2,6 @@
 
 /* **
  *  Search a user in MySQL, and then return true(1) or false(0).
- *  
- *  by Ian
  */
 
 // array for JSON response
@@ -35,7 +33,7 @@ if (isset($_POST['Email'])){
 			$response["success"] = 0;
 			$response["message"] = "This user is not registered.";
 		} else {
-			$response["success"] = 0;
+			$response["success"] = -1;
 			$response["message"] = "Duplicate registration!!";
 		}	
 		
@@ -43,7 +41,7 @@ if (isset($_POST['Email'])){
 		echo json_encode($response);
 	}	else {
 		// result is null
-		$response["success"] = 0;
+		$response["success"] = -1;
 		$response["message"] = "result = null";
 		
 		// echoing JSON response
@@ -51,7 +49,7 @@ if (isset($_POST['Email'])){
 	}
 } else {
 	// required field is missing
-	$response["success"] = 0;
+	$response["success"] = -1;
 	$response["message"] = "Required field(s) is missing";
 	
 	// echoing JSON response

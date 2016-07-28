@@ -1,8 +1,7 @@
 <?php
 
-/*
- * Following code will update a product information
- * A product is identified by product id (pid)
+/* **
+ * Following code will update a user's email
  */
 
 // array for JSON response
@@ -20,7 +19,7 @@ if (isset($_POST['userID']) && isset($_POST['Email'])) {
     // connecting to db
     $db = new DB_CONNECT();
 
-    // mysql update row with matched pid
+    // mysql update row with matched userID
     $result = mysql_query("UPDATE user SET Email = '$email' WHERE userID = '$userid'");
 
     // check if row inserted or not
@@ -32,8 +31,8 @@ if (isset($_POST['userID']) && isset($_POST['Email'])) {
         // echoing JSON response
         echo json_encode($response);
     } else {
-    		$response["success"] = 1;
-        $response["message"] = "NONONONONONONONOProduct successfully updated.";
+    		$response["success"] = 0;
+        $response["message"] = "unsuccessfully updated.";
         echo json_encode($response);
     }
 } else {

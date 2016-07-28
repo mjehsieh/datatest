@@ -2,8 +2,6 @@
 
 /* **
  *  Create a new user in MySQL.
- *  
- *  by Ian
  */
 
 // array for JSON response
