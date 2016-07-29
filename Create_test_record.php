@@ -294,7 +294,7 @@ if (!isset($_POST['test_type'])){
 	if ($result) {
 		// successfully insert
 		$response["success"] = 1;
-		$response["message"] = "Successfully create a new user.";
+		$response["message"] = "Successfully create a new record.";
 		
 		// echoing JSON response
 		echo json_encode($response);
