@@ -8,7 +8,7 @@
 $response = array();
 
 // check for required fields
-if (} else if (isset($_POST['test_type'])){
+if (isset($_POST['test_type'])){
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "test_type is missing";
