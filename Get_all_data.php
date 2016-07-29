@@ -21,7 +21,7 @@ $result = mysql_query($sql) or die(mysql_error());
 // check for empty result
 if (mysql_num_rows($result) > 0) {
     // looping through all results
-    // products node
+    // data node
     $response["data"] = array();
     
     while ($row = mysql_fetch_array($result)) {
@@ -33,7 +33,7 @@ if (mysql_num_rows($result) > 0) {
         $data["email_address"] = $row["email_address"];
         $data["phone_number"] = $row["phone_number"];
 
-        // push single product into final response array
+        // push data product into final response array
         array_push($response["data"], $data);
     }
     // success

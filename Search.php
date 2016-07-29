@@ -1,7 +1,7 @@
 <?php
 
 /* **
- *  Check user's email address in USER_ACCOUNT_TABLE, return 1 (registered) or 0 (non registered).
+ *  Search a user's email address in USER_ACCOUNT_TABLE.
  */
 
 // array for JSON response
@@ -25,23 +25,33 @@ if (isset($_POST['email_address'])){
 	
 	// check if row inserted or not
 	if ($result) {
+		// data node
+		$response["data"] = array();
+		
 		// check if row is empty
-		if(mysql_num_rows($result) == 1) {
-			$response["success"] = 1;
-			$response["message"] = "This user is already registered.";
-		} else if(mysql_num_rows($result) == 0) {
-			$response["success"] = 0;
-			$response["message"] = "This user is not registered.";
-		} else {
-			$response["success"] = -1;
-			$response["message"] = "Duplicate registration!!";
-		}	
+		if(mysql_num_rows($result)>0) {
+			
+			while ($row = mysql_fetch_array($result)) {
+        // temp user array
+        $data = array();
+        $data["user_id"] = $row["user_id"];
+        $data["store_user_name"] = $row["store_user_name"];
+        $data["store_user_address"] = $row["store_user_address"];
+        $data["email_address"] = $row["email_address"];
+        $data["phone_number"] = $row["phone_number"];
+
+        // push single data into final response array
+        array_push($response["data"], $data);
+    	}
+	    // success
+	    $response["success"] = 1;
+		}
 		
 		// echoing JSON response
 		echo json_encode($response);
 	}	else {
 		// result is null
-		$response["success"] = -1;
+		$response["success"] = 0;
 		$response["message"] = "result = null";
 		
 		// echoing JSON response
@@ -49,7 +59,7 @@ if (isset($_POST['email_address'])){
 	}
 } else {
 	// required field is missing
-	$response["success"] = -1;
+	$response["success"] = 0;
 	$response["message"] = "Required field(s) is missing";
 	
 	// echoing JSON response
