@@ -29,9 +29,14 @@ if (isset($_POST['store_user_name']) &&	isset($_POST['email_address']))
 	$sql = "delete from USER_ACCOUNT_TABLE where store_user_name = '$store_user_name' and email_address = '$email_address'";
 	$result = mysql_query($sql) or die(mysql_error());
 	
+	// result rows
+	$sql = "select * from USER_ACCOUNT_TABLE";
+	$result_r = mysql_query($sql) or die(mysql_error()); 
+	$result_rows = mysql_num_rows($result_r);
+	
 	// check if row delete or not
 	if ($result) {
-		if(mysql_num_rows($result) < $ori_rows){
+		if($result_rows < $ori_rows){
 			// successfully delete
 			$response["success"] = 1;
 			$response["message"] = "Successfully delete a user.";

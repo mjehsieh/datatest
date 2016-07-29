@@ -24,12 +24,11 @@ if (isset($_POST['email_address'])){
 	$result = mysql_query($sql) or die(mysql_error());
 	
 	// check if row inserted or not
-	if ($result) {
-		// data node
-		$response["data"] = array();
-		
+	if ($result) {		
 		// check if row is empty
 		if(mysql_num_rows($result)>0) {
+			// data node
+			$response["data"] = array();
 			
 			while ($row = mysql_fetch_array($result)) {
         // temp user array

@@ -28,9 +28,14 @@ if (isset($_POST['record_id']))
 	$sql = "delete from TEST_RECORD_TABLE where record_id = '$record_id'";
 	$result = mysql_query($sql) or die(mysql_error());
 	
+	// result rows
+	$sql = "select * from TEST_RECORD_TABLE";
+	$result_r = mysql_query($sql) or die(mysql_error()); 
+	$result_rows = mysql_num_rows($result_r);
+	
 	// check if row delete or not
 	if ($result) {
-		if(mysql_num_rows($result) < $ori_rows){
+		if($result_rows < $ori_rows){
 			// successfully delete
 			$response["success"] = 1;
 			$response["message"] = "Successfully delete a record.";
