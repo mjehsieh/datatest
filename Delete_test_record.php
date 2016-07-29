@@ -19,15 +19,26 @@ if (isset($_POST['record_id']))
 	// connecting to db
 	$db = new DB_CONNECT();
 	
+	// original rows
+	$sql = "select * from TEST_RECORD_TABLE";
+	$origin = mysql_query($sql) or die(mysql_error()); 
+	$ori_rows = mysql_num_rows($origin);
+	
 	// delete data from test record table
 	$sql = "delete from TEST_RECORD_TABLE where record_id = '$record_id'";
 	$result = mysql_query($sql) or die(mysql_error());
 	
 	// check if row delete or not
 	if ($result) {
-		// successfully delete
-		$response["success"] = 1;
-		$response["message"] = "Successfully delete a record.";
+		if(mysql_num_rows($result) < $ori_rows){
+			// successfully delete
+			$response["success"] = 1;
+			$response["message"] = "Successfully delete a record.";
+		} else {
+			// fail to delete
+			$response["success"] = 0;
+			$response["message"] = "Fail to delete a record.";
+		}
 		
 		// echoing JSON response
 		echo json_encode($response);

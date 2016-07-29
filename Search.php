@@ -45,13 +45,17 @@ if (isset($_POST['email_address'])){
     	}
 	    // success
 	    $response["success"] = 1;
+		} else {
+			$response["success"] = 0;
+			$response["message"] = "no users found.";
 		}
+			
 		
 		// echoing JSON response
 		echo json_encode($response);
 	}	else {
 		// result is null
-		$response["success"] = 0;
+		$response["success"] = -1;
 		$response["message"] = "result = null";
 		
 		// echoing JSON response
@@ -59,7 +63,7 @@ if (isset($_POST['email_address'])){
 	}
 } else {
 	// required field is missing
-	$response["success"] = 0;
+	$response["success"] = -1;
 	$response["message"] = "Required field(s) is missing";
 	
 	// echoing JSON response

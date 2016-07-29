@@ -20,15 +20,26 @@ if (isset($_POST['store_user_name']) &&	isset($_POST['email_address']))
 	// connecting to db
 	$db = new DB_CONNECT();
 	
+	// original rows
+	$sql = "select * from USER_ACCOUNT_TABLE";
+	$origin = mysql_query($sql) or die(mysql_error()); 
+	$ori_rows = mysql_num_rows($origin);
+	
 	// delete data from user account table
 	$sql = "delete from USER_ACCOUNT_TABLE where store_user_name = '$store_user_name' and email_address = '$email_address'";
 	$result = mysql_query($sql) or die(mysql_error());
 	
 	// check if row delete or not
 	if ($result) {
-		// successfully delete
-		$response["success"] = 1;
-		$response["message"] = "Successfully delete a user.";
+		if(mysql_num_rows($result) < $ori_rows){
+			// successfully delete
+			$response["success"] = 1;
+			$response["message"] = "Successfully delete a user.";
+		} else {
+			// fail to delete
+			$response["success"] = 0;
+			$response["message"] = "Fail to delete a user.";
+		}
 		
 		// echoing JSON response
 		echo json_encode($response);
