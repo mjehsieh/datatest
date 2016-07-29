@@ -8,182 +8,182 @@
 $response = array();
 
 // check for required fields
-if (isset($_POST['test_type'])){
+if (!isset($_POST['test_type'])){
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "test_type is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);
-} else if (isset($_POST['result'])){
+} else if (!isset($_POST['result'])){
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "result is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);
-} else if (isset($_POST['battery_type'])){ 
+} else if (!isset($_POST['battery_type'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "battery_type is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);	
-} else if (isset($_POST['battery_model_num'])){ 
+} else if (!isset($_POST['battery_model_num'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "battery_model_num is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);	
-} else if (isset($_POST['set_capacity'])){ 
+} else if (!isset($_POST['set_capacity'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "set_capacity is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['measure'])){ 
+} else if (!isset($_POST['measure'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "measure is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['rating'])){ 
+} else if (!isset($_POST['rating'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "rating is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['soh'])){
+} else if (!isset($_POST['soh'])){
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "soh is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['soc'])){ 
+} else if (!isset($_POST['soc'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "soc is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['soc_voltage'])){ 
+} else if (!isset($_POST['soc_voltage'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "soc_voltage is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);	
-} else if (isset($_POST['crnaking_volt'])){ 
+} else if (!isset($_POST['crnaking_volt'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "crnaking_volt is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);		
-} else if (isset($_POST['crnaking_high_low'])){ 
+} else if (!isset($_POST['crnaking_high_low'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "crnaking_high_low is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['alt_idle_volt'])){ 
+} else if (!isset($_POST['alt_idle_volt'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "alt_idle_volt is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['alt_idle_high_low'])){ 
+} else if (!isset($_POST['alt_idle_high_low'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "alt_idle_high_low is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['load_ripple_volt'])){ 
+} else if (!isset($_POST['load_ripple_volt'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "load_ripple_volt is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['load_ripple_high_low'])){ 
+} else if (!isset($_POST['load_ripple_high_low'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "load_ripple_high_low is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['alt_load_volt'])){ 
+} else if (!isset($_POST['alt_load_volt'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "alt_load_volt is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['alt_load_high_low'])){ 
+} else if (!isset($_POST['alt_load_high_low'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "alt_load_high_low is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['v_category'])){ 
+} else if (!isset($_POST['v_category'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "v_category is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);				
-} else if (isset($_POST['test_name'])){ 
+} else if (!isset($_POST['test_name'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "test_name is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['test_time'])){ 
+} else if (!isset($_POST['test_time'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "test_time is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['tester_name'])){ 
+} else if (!isset($_POST['tester_name'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "tester_name is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['test_account'])){ 
+} else if (!isset($_POST['test_account'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "test_account is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['no_load_ripple_volt'])){ 
+} else if (!isset($_POST['no_load_ripple_volt'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "no_load_ripple_volt is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['no_load_ripple_high_low'])){ 
+} else if (!isset($_POST['no_load_ripple_high_low'])){ 
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "no_load_ripple_high_low is missing";
 	
 	// echoing JSON response
 	echo json_encode($response);			
-} else if (isset($_POST['ir_value'])){
+} else if (!isset($_POST['ir_value'])){
 	// required field is missing
 	$response["success"] = 0;
 	$response["message"] = "ir_value is missing";
