@@ -9,6 +9,7 @@
     $result = mysql_query($sql) or die('MySQL query error');
     
     
+    echo "gitlab deploy test!<br>";
     echo "User Account Table:<br>";
     echo "<table border='1'>
 		<tr>
