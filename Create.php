@@ -3,6 +3,8 @@
 /* **
  *  Create a new user to USER_ACCOUNT_TABLE.
  */
+ 
+header('Content-type: application/json');
 
 // array for JSON response
 $response = array();
